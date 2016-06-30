@@ -12,9 +12,9 @@ Install polymer using npm
 step 2.
 navigate into the directory
 
-step3.
+step 3.
 command polymer serve --open
 
-step4.
+step 4.
 open the application using given url
 
