@@ -46,19 +46,51 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     </style>
 
     <div class="card">
-      <div class="circle">1</div>
+      <!-- <div class="circle">1</div> -->
       <h1>Student View</h1>
-      <p>Ut labores minimum atomorum pro. Laudem tibique ut has.
-      <p>Lorem ipsum dolor sit amet, per in nusquam nominavi periculis, sit elit oportere ea.Lorem ipsum dolor sit amet, per in nusquam nominavi periculis, sit elit oportere ea.Cu mei vide viris gloriatur, at populo eripuit sit.</p>
+      <p>Enter Student Name.</p>
+	  <!-- paper input examples -->
+	  <!--
+	  <paper-input-container>
+		<div prefix>$</div>
+		<label>Total</label>
+		<input is="iron-input">
+		<paper-icon-button suffix icon="clear"></paper-icon-button>
+	  </paper-input-container>
+	  -->
+      <paper-input id="studName" label="Student Name" style="width:20em;float: left;" error-message="Invalid input!" size="25"></paper-input>
+	  
+	  <!-- <paper-input label="Enter Student Name" type="search" placeholder="search for cats" autosave="test" results="5"> </paper-input> -->
+	  
+	  <paper-button raised id="searchStudent" label="StudentName" on-tap="searchStudent">Search</paper-button>
     </div>
-
+	
+	<div id="studProfile"></div>
+	
   </template>
 
   <script>
 
     Polymer({
 
-      is: 'my-viewStudent'
+      is: 'my-viewStudent',
+	  
+	  searchStudent: function(){
+	  
+		this.$.studProfile.setAttribute("class", "card");
+		
+		this.$.studProfile.innerHTML = "";
+		
+		var studName = document.createElement('h1');
+		studName.innerHTML = this.$.studName.value;
+		this.$.studProfile.appendChild(studName);
+		
+		var profilePic = document.createElement('img');
+		profilePic.setAttribute("src", "");
+		profilePic.setAttribute("height", "200");
+		profilePic.setAttribute("width", "200");
+		this.$.studProfile.appendChild(profilePic);
+	  }
 
     });
 
